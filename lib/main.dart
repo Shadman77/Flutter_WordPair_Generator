@@ -12,7 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         // Scaffold is scaffolding which is kind of like a template
         theme: ThemeData(
-          primaryColor: Colors.purple.shade900,
+          primaryColor: Colors.grey,
+          appBarTheme: const AppBarTheme(
+            color: Colors.grey,
+          ),
           brightness: Brightness.light,
           fontFamily: 'Georgia',
         ),

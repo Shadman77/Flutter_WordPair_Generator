@@ -16,7 +16,7 @@ class RandomWordsState extends State<RandomWords> {
     return ListView.builder(
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (context, item) {
-          if (item.isOdd) return Divider();
+          if (item.isOdd) return const Divider();
 
           final index = item ~/ 2;
 
@@ -37,7 +37,7 @@ class RandomWordsState extends State<RandomWords> {
       ),
       trailing: Icon(
         alreadySaved ? Icons.favorite : Icons.favorite_border,
-        color: alreadySaved ? Colors.red : null,
+        color: alreadySaved ? Colors.black : null,
       ),
       onTap: () {
         setState(() {
@@ -56,7 +56,7 @@ class RandomWordsState extends State<RandomWords> {
         .push(MaterialPageRoute(builder: (BuildContext context) {
       final Iterable<ListTile> tiles = _savedWordPairs.map((WordPair pair) {
         return ListTile(
-            tileColor: Colors.blue.shade100,
+            tileColor: Colors.grey.shade100,
             title: Text(pair.asPascalCase,
                 style: const TextStyle(
                   fontSize: 16,
@@ -85,7 +85,7 @@ class RandomWordsState extends State<RandomWords> {
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.list),
+            icon: const Icon(Icons.list),
             onPressed: _pushSaved,
           )
         ],
