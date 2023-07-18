@@ -16,4 +16,12 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## Tutorial
+
 https://www.youtube.com/watch?v=1gDhl4leEzA
+
+## Upgrade For Java Version
+
+1. Create a new project using ""flutter create .""
+2. Copy the contents of "android/gradle/wrapper/gradle-wrapper.properties" and "android/build.gradle"
+3. Run "flutter clean"
+4. Run "flutter run"
