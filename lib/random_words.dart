@@ -78,6 +78,20 @@ class RandomWordsState extends State<RandomWords> {
     }));
   }
 
+  void _addWordPair() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text("Add WordPair"),
+        ),
+        body: const Form(child: TextField()),
+      );
+    }));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -91,6 +105,11 @@ class RandomWordsState extends State<RandomWords> {
         ],
       ),
       body: _buildList(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _addWordPair,
+        backgroundColor: Colors.grey.shade600,
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
