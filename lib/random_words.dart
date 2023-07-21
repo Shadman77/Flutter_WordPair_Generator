@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import './add_random_words.dart';
 
 class RandomWords extends StatefulWidget {
   const RandomWords({Key? key}) : super(key: key);
@@ -78,19 +79,6 @@ class RandomWordsState extends State<RandomWords> {
     }));
   }
 
-  void _addWordPair() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("Add WordPair"),
-        ),
-        body: const Form(child: TextField()),
-      );
-    }));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,7 +94,7 @@ class RandomWordsState extends State<RandomWords> {
       ),
       body: _buildList(),
       floatingActionButton: FloatingActionButton(
-        onPressed: _addWordPair,
+        onPressed: () => addWordPair(context),
         backgroundColor: Colors.grey.shade600,
         child: const Icon(Icons.add),
       ),
