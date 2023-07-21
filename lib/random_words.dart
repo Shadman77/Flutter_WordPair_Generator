@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import './add_random_words.dart';
+import './view_saved_words.dart';
 
 class RandomWords extends StatefulWidget {
   const RandomWords({Key? key}) : super(key: key);
@@ -52,33 +53,6 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
-  void _pushSaved() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (BuildContext context) {
-      final Iterable<ListTile> tiles = _savedWordPairs.map((WordPair pair) {
-        return ListTile(
-            tileColor: Colors.grey.shade100,
-            title: Text(pair.asPascalCase,
-                style: const TextStyle(
-                  fontSize: 16,
-                )));
-      });
-
-      final List<Widget> divided =
-          ListTile.divideTiles(context: context, tiles: tiles).toList();
-
-      return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("Saved Wordpairs"),
-        ),
-        body: ListView(
-          children: divided,
-        ),
-      );
-    }));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +62,7 @@ class RandomWordsState extends State<RandomWords> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.list),
-            onPressed: _pushSaved,
+            onPressed: () => viewSavedWordPair(context, _savedWordPairs),
           )
         ],
       ),
