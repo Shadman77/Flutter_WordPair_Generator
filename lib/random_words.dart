@@ -14,6 +14,11 @@ class RandomWordsState extends State<RandomWords> {
   final _randomWordPairs = <WordPair>[];
   final _savedWordPairs = Set<WordPair>(); //Set cannot contain duplicates
 
+  void updateWordPairs(WordPair newWordPair) {
+    _randomWordPairs.insert(0, newWordPair);
+    print("Inserted");
+  }
+
   Widget _buildList() {
     return ListView.builder(
         padding: const EdgeInsets.all(16.0),
@@ -68,7 +73,7 @@ class RandomWordsState extends State<RandomWords> {
       ),
       body: _buildList(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => addWordPair(context),
+        onPressed: () => addWordPair(context, updateWordPairs),
         backgroundColor: Colors.grey.shade600,
         child: const Icon(Icons.add),
       ),
