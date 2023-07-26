@@ -15,8 +15,10 @@ class RandomWordsState extends State<RandomWords> {
   final _savedWordPairs = Set<WordPair>(); //Set cannot contain duplicates
 
   void updateWordPairs(WordPair newWordPair) {
-    _randomWordPairs.insert(0, newWordPair);
-    print("Inserted");
+    setState(() {
+      _randomWordPairs.insert(0, newWordPair);
+      print("Inserted");
+    });
   }
 
   Widget _buildList() {
